@@ -59,6 +59,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-medical: var(--medical);
+  --color-medical-foreground: var(--medical-foreground);
 }
 
 :root {
@@ -95,6 +97,8 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --medical: oklch(0.55 0.18 245);
+  --medical-foreground: oklch(1 0 0);
 }
 
 .dark {
