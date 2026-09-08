@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Stethoscope,
   Ear,
@@ -9,7 +9,10 @@ import {
   Clock,
   CalendarCheck,
   ChevronRight,
+  Menu,
+  X,
 } from "lucide-react";
+import * as React from "react";
 
 import heroImage from "../assets/hero-medical.jpg";
 
