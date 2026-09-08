@@ -32,9 +32,7 @@ export const Route = createFileRoute("/")({
           "Expert care, close to home. General Physician, ENT, Dentist, and Cardiologist services in JLT, Dubai.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: heroImage },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: heroImage },
     ],
   }),
   component: Index,
@@ -133,6 +131,8 @@ function Index() {
                   alt="Bright, modern medical clinic waiting area"
                   className="h-full w-full object-cover"
                   loading="eager"
+                  width={1280}
+                  height={640}
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 hidden rounded-xl border border-border bg-background p-4 shadow-lg lg:block">
