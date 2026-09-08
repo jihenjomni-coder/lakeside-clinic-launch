@@ -65,16 +65,25 @@ const specialties = [
 ];
 
 function Index() {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       {/* Navigation */}
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <a href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-primary">
-            <HeartPulse className="h-6 w-6 text-medical" aria-hidden="true" />
+          <Link
+            to="/"
+            className="flex min-w-0 items-center gap-2 text-lg font-semibold tracking-tight text-primary"
+          >
+            <HeartPulse className="h-6 w-6 shrink-0 text-medical" aria-hidden="true" />
             <span>Lakeside Medical</span>
-          </a>
-          <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground sm:flex">
+          </Link>
+
+          <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex">
+            <Link to="/" className="transition-colors hover:text-foreground">
+              Home
+            </Link>
             <a href="#specialties" className="transition-colors hover:text-foreground">
               Specialties
             </a>
@@ -85,13 +94,70 @@ function Index() {
               Contact
             </a>
           </nav>
+
           <a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-medical px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-medical/90"
+            className="hidden items-center justify-center rounded-full bg-medical px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-medical/90 md:inline-flex"
           >
-            Book now
+            Book an appointment
           </a>
+
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            )}
+          </button>
         </div>
+
+        {mobileMenuOpen && (
+          <div className="border-t border-border bg-background px-4 py-4 md:hidden">
+            <nav className="flex flex-col gap-1">
+              <Link
+                to="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-lg px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-accent"
+              >
+                Home
+              </Link>
+              <a
+                href="#specialties"
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-lg px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-accent"
+              >
+                Specialties
+              </a>
+              <a
+                href="#about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-lg px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-accent"
+              >
+                About
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-lg px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-accent"
+              >
+                Contact
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-2 inline-flex items-center justify-center rounded-full bg-medical px-4 py-2.5 text-base font-medium text-white transition-colors hover:bg-medical/90"
+              >
+                Book an appointment
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero */}
