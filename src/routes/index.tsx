@@ -179,7 +179,7 @@ function Index() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-medical px-6 py-3 text-base font-semibold text-white shadow-md transition-all hover:bg-medical/90 hover:shadow-lg"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-medical px-6 py-3 text-base font-semibold text-white shadow-md transition-all hover:bg-medical/90 hover:shadow-lg sm:w-auto"
                 >
                   <CalendarCheck className="h-5 w-5" aria-hidden="true" />
                   Book an appointment
@@ -237,7 +237,7 @@ function Index() {
               return (
                 <div
                   key={specialty.title}
-                  className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                  className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-medical/10 text-medical transition-colors group-hover:bg-medical group-hover:text-white">
                     <Icon className="h-6 w-6" aria-hidden="true" />
@@ -245,7 +245,7 @@ function Index() {
                   <h3 className="mt-5 text-lg font-semibold text-card-foreground">
                     {specialty.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-2 flex-grow text-sm leading-relaxed text-muted-foreground">
                     {specialty.description}
                   </p>
                 </div>
